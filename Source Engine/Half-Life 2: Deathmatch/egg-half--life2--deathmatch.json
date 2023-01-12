@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2023-01-10T22:26:22-06:00",
+    "exported_at": "2023-01-11T22:46:46-05:00",
     "name": "Half-Life 2: Deathmatch",
     "author": "saturn34@moon.tf",
     "description": "Half-Life 2: Deathmatch is a multiplayer first-person shooter video game developed by Valve. Released on Steam on November 30, 2004, it uses many of the assets from Half-Life 2 and its Source engine. It features new levels, optimized for multiplayer arena play, and a few new weapons.",
@@ -13,7 +13,7 @@
         "ghcr.io\/pterodactyl\/games:source": "ghcr.io\/pterodactyl\/games:source"
     },
     "file_denylist": [],
-    "startup": ".\/srcds_run -console -game hl2mp -maxplayers {{MAXPLAYERS}} +map {{SRCDS_MAP}} +ip 0.0.0.0 -port {{SERVER_PORT}} +mp_teamplay {{TEAMPLAY}} -strictportbind -norestart",
+    "startup": ".\/srcds_run -console -game hl2mp -maxplayers {{MAX_PLAYERS}} +map {{SRCDS_MAP}} +ip 0.0.0.0 -port {{SERVER_PORT}} +mp_teamplay {{TEAMPLAY}} -strictportbind -norestart +sv_setsteamaccount {{STEAM_ACC}}",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"gameserver Steam ID\"\r\n}",
@@ -61,11 +61,11 @@
         {
             "name": "Max Players",
             "description": "Number of maximum player slots.",
-            "env_variable": "MAXPLAYERS",
+            "env_variable": "MAX_PLAYERS",
             "default_value": "16",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|integer|max:33",
+            "rules": "required|integer|max:16",
             "field_type": "text"
         },
         {
